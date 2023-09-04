@@ -1,5 +1,5 @@
 # rv32emu-calc_fclass-optimization
-This repository focuses on improving the efficiency of rv32emu's inline function calc_fclass by implementing a binary decision tree optimization. Here, you'll find code designed to evaluate the performance of this enhanced version of calc_fclass. Our testing results reveal that the optimized function performs approximately 40% faster than the original implementation. These tests were conducted with Turbo Boost and SMT disabled to ensure accurate performance measurements.
+This repository focuses on improving the efficiency of [rv32emu](https://github.com/sysprog21/rv32emu)'s inline function calc_fclass by implementing a binary decision tree optimization. Here, you'll find code designed to evaluate the performance of this enhanced version of calc_fclass. Our testing results reveal that the optimized function performs approximately 40% faster than the original implementation. These tests were conducted with Turbo Boost and SMT disabled to ensure accurate performance measurements.
 
 ## Test Environment
 ```
