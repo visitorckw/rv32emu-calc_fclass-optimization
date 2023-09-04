@@ -111,7 +111,6 @@ int main(int argc, char *argv[])
     struct timespec t_end_new;
     long long duration_origin;
     long long duration_new;
-    int seed = (argc > 1 ? atoi(argv[1]) : time(NULL));
 
     t_start_origin.tv_sec = 0;
     t_start_origin.tv_nsec = 0;
@@ -122,7 +121,6 @@ int main(int argc, char *argv[])
     t_end_new.tv_sec = 0;
     t_end_new.tv_nsec = 0;
 
-    srand(seed);
     clock_gettime(CLOCK_MONOTONIC, &t_start_origin);
     for (uint32_t i = 0; i < 0xffffffff; i++) {
         count1 |= calc_fclass(i);
@@ -131,7 +129,6 @@ int main(int argc, char *argv[])
     duration_origin = (1e9 * t_end_origin.tv_sec + t_end_origin.tv_nsec) -
                       (1e9 * t_start_origin.tv_sec + t_start_origin.tv_nsec);
 
-    srand(seed);
     clock_gettime(CLOCK_MONOTONIC, &t_start_new);
     for (uint32_t i = 0; i < 0xffffffff; i++) {
         count2 |= calc_fclass_new(i);
