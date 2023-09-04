@@ -73,29 +73,29 @@ static inline uint32_t calc_fclass_new(uint32_t f)
     /* 0x100    rs1 is a signaling NaN */
     /* 0x200    rs1 is a quiet NaN */
 
-    // Check if it is special value -INF
+    /* Check if it is special value -INF */
     out |= (f == 0xff800000) ? 0x001 : 0;
-    // Check if it is special value -0
+    /* Check if it is special value -0 */
     out |= (f == 0x80000000) ? 0x008 : 0;
-    // Check if it is special value +0
+    /* Check if it is special value +0 */
     out |= (f == 0x00000000) ? 0x010 : 0;
 
-    // Check the exponent bits
+    /* Check the exponent bits */
     if (expn) {
         if (expn != FMASK_EXPN) {
-            // Check if it is negative normal or positive normal
+            /* Check if it is negative normal or positive normal */
             out |= sign ? 0x002 : 0x040;
         } else {
-            // Check if it is NaN
+            /* Check if it is NaN */
             if (frac) {
                 out |= frac & FMASK_QNAN ? 0x200 : 0x100;
             } else if (!sign) {
-                // Check if it is +INF
+                /* Check if it is +INF */
                 out |= 0x080;
             }
         }
     } else if (frac) {
-        // Check if it is negative or positive subnormal
+        /* Check if it is negative or positive subnormal */
         out |= sign ? 0x004 : 0x020;
     }
 
@@ -104,7 +104,7 @@ static inline uint32_t calc_fclass_new(uint32_t f)
 
 int main(int argc, char *argv[])
 {
-    uint32_t count1 = 0, count2 = 0;  // to prevent compiler from optimizing
+    uint32_t count1 = 0, count2 = 0; /* to prevent compiler from optimizing */
     struct timespec t_start_origin;
     struct timespec t_start_new;
     struct timespec t_end_origin;
