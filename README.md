@@ -36,7 +36,7 @@ NUMA node0 CPU(s):               0-11
 
 ## Result
 ```
-  Elapsed time(old):   13823855734
-  Elapsed time(new):   8291391122
-  New is faster by:    40.021140%
+  Elapsed time(old):   13417047800
+  Elapsed time(new):   4155587892
+  New is faster by:    69.027554%
 ```
